@@ -1,0 +1,44 @@
+<div class="form-group">
+  <div class="form-row">
+    名前
+    <div class="col-auto">
+      <input type="text" class="form-control" [(ngModel)]="searchText">
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" (click)="searchUser()">{{ 'Search' | translate }}</button>
+    </div>
+  </div>
+  <hr>
+  
+  <button class="btn btn-primary" (click)="regUser(null)">{{ 'Add' | translate }}</button>
+  <hr>
+
+  <div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>{{ 'ID' | translate }}</th>
+        <th>{{ 'Name' | translate }}</th>
+        <th>{{ 'Age' | translate }}</th>
+        <th>{{ 'Sex' | translate }}</th>
+        <th>{{ 'Birthday' | translate }}</th>
+        <th>{{ 'Note' | translate }}</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of users">
+        <td>{{ data.id }}</td>
+        <td>{{ data.name }}</td>
+        <td>{{ data.age }}</td>
+        <td>{{ data.sex | enumChange: enums.Sex }}</td>
+        <td>{{ data.birthday | date:"yyyy/MM/dd" }}</td>
+        <td>{{ data.note }}</td>
+        <td><mat-icon color="primary"(click)="regUser(data)">edit</mat-icon></td>
+        <td><mat-icon color="warn" (click)="delUser(data)">delete_forever</mat-icon></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

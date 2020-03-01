@@ -1,0 +1,9 @@
+<app-topnav (toggleSidebar)="sidenav.toggle()"></app-topnav>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" opened="{{ sidenavOpened }}">
+        <app-sidebar (toggleSidebar)="sidenav.toggle()"></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

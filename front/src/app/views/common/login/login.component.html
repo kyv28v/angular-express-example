@@ -1,0 +1,22 @@
+<div class="page-header text-center">
+    <h1>Angular + Express Example</h1>
+</div>
+<hr>
+<div class="container" style="max-width: 350px;">
+    <div class="card">
+        <h5 class="card-header">{{ 'Log In' | translate }}</h5>
+        <div class="card-body">
+            {{ 'User ID' | translate }}
+            <input type="text" class="form-control mb-2" placeholder="{{ 'Enter User ID' | translate }}" required autofocus [(ngModel)]="userid">
+            {{ 'Password' | translate }}
+            <input type="password" class="form-control mb-2" placeholder="{{ 'Enter Password' | translate }}" required [(ngModel)]="password">
+            <button class="btn btn-lg btn-primary btn-block" (click)="onLogin()">{{ 'Log In' | translate }}</button>
+        </div>
+    </div>
+</div>
+<hr>
+<footer>
+    <div class="container-fluid text-center">
+        <p class="help-block">&#169; 2020- xxxxxxx.com</p>
+    </div>
+</footer>

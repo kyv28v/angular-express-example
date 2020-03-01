@@ -1,0 +1,13 @@
+<div id="sidebar">
+    <mat-nav-list>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/home']" (click)="selectMenu()">
+            <mat-icon class="sidenav-icon">build</mat-icon> {{ 'Home' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/userMng']" (click)="selectMenu()">
+            <mat-icon class="sidenav-icon">people</mat-icon> {{ 'User Manage' | translate }}
+        </a>
+        <a mat-list-item [routerLinkActive]="'active'" [routerLink]="['/roomAccessMng']" (click)="selectMenu()">
+            <mat-icon class="sidenav-icon">access_time</mat-icon> {{ 'Room Access Manage' | translate }}
+        </a>
+    </mat-nav-list>
+</div>

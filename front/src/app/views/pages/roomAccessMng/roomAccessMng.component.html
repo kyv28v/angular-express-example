@@ -1,0 +1,49 @@
+<div class="form-group">
+  <div class="form-row">
+    部屋
+    <div class="col-auto">
+      <select class="form-control" [(ngModel)]="searchList">
+        <option value=""></option>
+        <option *ngFor="let data of enums.Rooms" value={{data.id}}>
+          {{data.id}}:{{ data.name | translate }}
+        </option>
+      </select>
+    </div>
+    <div class="col-auto">
+      <button class="btn btn-primary" (click)="searchRoomAccessMng()">{{ 'Search' | translate }}</button>
+    </div>
+  </div>
+  <hr>
+  
+  <button class="btn btn-primary" (click)="regRoomAccessMng(null)">{{ 'Add' | translate }}</button>
+  <hr>
+
+  <div class="table-responsive">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th>{{ 'ID' | translate }}</th>
+        <th>{{ 'Room' | translate }}</th>
+        <th>{{ 'User' | translate }}</th>
+        <th>{{ 'EntryDateTime' | translate }}</th>
+        <th>{{ 'ExitDateTime' | translate }}</th>
+        <th>{{ 'Note' | translate }}</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of roomAccessMngs">
+        <td>{{ data.id }}</td>
+        <td>{{ data.room_cd | enumChange: enums.Rooms }}</td>
+        <td>{{ data.user_id | enumChange: userList }}</td>
+        <td>{{ data.entry_dt | date:"yyyy/MM/dd HH:mm" }}</td>
+        <td>{{ data.exit_dt | date:"yyyy/MM/dd HH:mm" }}</td>
+        <td>{{ data.note }}</td>
+        <td><mat-icon color="primary"(click)="regRoomAccessMng(data)">edit</mat-icon></td>
+        <td><mat-icon color="warn" (click)="delRoomAccessMng(data)">delete_forever</mat-icon></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

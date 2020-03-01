@@ -1,0 +1,1 @@
+DELETE FROM room_access_mng WHERE id = $1

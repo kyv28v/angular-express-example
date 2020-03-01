@@ -1,0 +1,1 @@
+INSERT INTO users (name, age, sex, birthday, password, note) VALUES ($1, $2, $3, $4, $5, $6)

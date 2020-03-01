@@ -1,0 +1,17 @@
+{
+  "name": "angular-express-template",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "install": "npm run install:front && npm run install:server",
+    "install:front": "npm install --prefix ./front",
+    "install:server": "npm install --prefix ./server",
+    "build": "npm run build:front && npm run build:server",
+    "build:front": "cd ./front && npm run build",
+    "build:server": "cd ./server && npm run build",
+    "start": "cd ./server && node ./dist/bin/www.js",
+    "watch": "npm run watch:front & npm run watch:server",
+    "watch:front": "cd ./front && npm run watch",
+    "watch:server": "cd ./server && npm run watch"
+  }
+}

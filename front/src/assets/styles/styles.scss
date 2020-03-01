@@ -1,0 +1,87 @@
+// angular material
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@angular/material/theming';
+
+// bootstrap
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+
+// main
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+.main-container {
+    position: absolute;
+    top: 64px;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+// button
+.btn-left {
+    @extend .btn;
+    @extend .btn-secondary;
+    @extend .mr-auto;
+}
+
+.btn-right {
+    @extend .btn;
+    @extend .btn-primary;
+}
+
+// flatpickr
+.flatpickr-input {
+    float: left;
+    width: 100%;
+    margin-right: -50px;
+    padding-right: 50px;
+    box-sizing: border-box;  
+}
+.flatpickr-clear {
+    float: right;
+    width: 50px;
+}
+
+// tooltip
+.tooltip-area {
+    position: absolute;
+    display: inline-block;
+    right: 0;
+}
+
+.tooltip-area p {
+    position: relative;
+    top: 0px;
+    right: 10px;
+    display: inline-block;
+    margin: 1.5em 0;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #fff;
+    font-size: 12px;
+    background: #000;
+    border-radius: 5px;
+}
+  
+.tooltip-area p:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: -7px;
+    top: 5px;
+    border-right: 7px solid #000;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+}

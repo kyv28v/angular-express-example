@@ -1,0 +1,37 @@
+<mat-toolbar color="primary" class="fix-nav">
+    <button type="button" mat-icon-button (click)="toggleSidebar.emit()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <div>
+        Angular + Express Example
+    </div>
+    <span class="nav-spacer"></span>
+
+    <button mat-icon-button [matMenuTriggerFor]="rootMenu">
+        <mat-icon>settings</mat-icon>
+    </button>
+
+    <mat-menu #rootMenu="matMenu">
+        <button mat-menu-item (click)="showUserInfo()">
+            <mat-icon>person</mat-icon>
+            <span>{{ 'Profile' | translate }}</span>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="language">
+            <mat-icon>language</mat-icon>
+            <span>{{ 'Language' | translate }}</span>
+        </button>
+    </mat-menu>
+      
+    <mat-menu #language="matMenu">
+        <button mat-menu-item (click)="changeLang('ja')">
+            <span>{{ 'Japanese' | translate }}</span>
+        </button>
+        <button mat-menu-item (click)="changeLang('en')">
+            <span>{{ 'English' | translate }}</span>
+        </button>
+    </mat-menu>
+      
+    <button mat-icon-button (click)="onLoggedout()">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>

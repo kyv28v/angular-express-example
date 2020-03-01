@@ -1,0 +1,110 @@
+<!-- header -->
+<div class="modal-header">
+  <h4 class="modal-title">{{ title | translate }}</h4>
+  <!--
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('cancel')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  -->
+</div>
+<!-- body -->
+<div class="card-body">
+  <table>
+    <tbody>
+      <tr><td colspan=2 style="white-space: pre-wrap;">{{ message | translate }}</td></tr>
+      <tr *ngFor="let item of items; let idx = index">
+        <td nowrap style="vertical-align:middle">
+          <p style="margin: 0px">{{ item.label | translate }}<font color=red size=1 *ngIf="item.required">*</font></p>
+        </td>
+        <!-- 表示のみ -->
+        <td *ngIf="item.inputtype == 'display'">
+          <input class="form-control" type="text" name="item_value"
+            [(ngModel)]="item.value" size=35 style="background-color:#f0f0f0" readonly>
+        </td>
+        <!-- テキスト -->
+        <td *ngIf="item.inputtype == 'text'">
+          <input class="form-control" type="text" name="item_value" (keyup)="item.validateMessage = null;"
+            [(ngModel)]="item.value" placeholder={{item.placeholder}}>
+        <!-- パスワード -->
+        <td *ngIf="item.inputtype == 'password'">
+          <input class="form-control" type="password" name="item_value" (keyup)="item.validateMessage = null;"
+            [(ngModel)]="item.value" placeholder={{item.placeholder}}>
+        </td>
+        <!-- テキストエリア -->
+        <td *ngIf="item.inputtype == 'textarea'">
+          <textarea class="form-control" rows="3" cols="40" name="item_value" (keyup)="item.validateMessage = null;"
+            [(ngModel)]="item.value" placeholder={{item.placeholder}}></textarea>
+        </td>
+        <!-- 日付 -->
+        <td *ngIf="item.inputtype == 'date'">
+          <div class="flatpickr-input">
+            <input
+              class="form-control"
+              style="background-color: white"
+              type="text"
+              (change)="item.validateMessage = null;"
+              mwlFlatpickr
+              [(ngModel)]="item.value"
+              [dateFormat]="'Y/m/d'"
+              [convertModelValue]="false"
+            >
+          </div>
+          <div class="flatpickr-clear">
+              <button mat-button (click)="item.value = null;">
+                <mat-icon>clear</mat-icon>
+              </button>
+          </div>
+        </td>
+        <!-- 日時 -->
+        <td *ngIf="item.inputtype == 'datetime'">
+          <div class="flatpickr-input">
+            <input
+              class="form-control"
+              style="background-color: white"
+              type="text"
+              (change)="item.validateMessage = null;"
+              mwlFlatpickr
+              [(ngModel)]="item.value"
+              [enableTime]=true
+              [time24hr]=true
+              [dateFormat]="'Y/m/d H:i'"
+              [convertModelValue]="false"
+            >
+          </div>
+          <div class="flatpickr-clear">
+              <button mat-button (click)="item.value = null;">
+                <mat-icon>clear</mat-icon>
+              </button>
+          </div>
+        </td>
+        <!-- リストボックス -->
+        <td *ngIf="item.inputtype == 'select'">
+          <select class="form-control" [(ngModel)]="item.value" (change)="item.validateMessage = null;">
+            <option *ngFor="let data of item.selectList" value={{data.id}}>
+              {{data.id}}:{{ data.name | translate }}
+            </option>
+          </select>
+        </td>
+        <!-- ラジオボタン -->
+        <td *ngIf="item.inputtype == 'radio'">
+          <ng-container *ngFor="let data of item.selectList; index as i">
+            <label>
+              <input type="radio" [(ngModel)]="item.value" [value]="data.id" (change)="item.validateMessage = null;"
+                [checked]="item.value == data.id">{{ data.name | translate }}
+            </label>&nbsp;
+          </ng-container>
+        </td>
+        <!-- バリデーションメッセージの表示 -->
+        <div class="tooltip-area" *ngIf="item.validateMessage">
+          <p>{{ item.validateMessage | translate }}</p>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- footer -->
+<div class="modal-footer">
+  <ng-container *ngFor="let button of buttons; let idx = index">
+    <button [class]="button.class" (click)="button.click()">{{ button.name | translate }}</button>
+  </ng-container>
+</div>
