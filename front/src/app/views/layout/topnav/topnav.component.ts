@@ -69,11 +69,11 @@ export class TopnavComponent implements OnInit {
         dialog.title = 'Profile';
         dialog.message = '';
         dialog.items = [
-            { label: 'Name', value: data ? data.name : null, inputtype: InputType.Display },
-            { label: 'Age', value: data ? data.age : null, inputtype: InputType.Display },
-            { label: 'Sex', value: data ? this.enumChangePipe.transform(data.sex, Enums.Sex) : null, inputtype: InputType.Display },
-            { label: 'Birthday', value: data ? this.datePipe.transform(data.birthday, 'yyyy/MM/dd') : null, inputtype: InputType.Display },
-            { label: 'Note', value: data ? data.note : null, inputtype: InputType.Display },
+            { label: 'Name', value: data?.name, inputtype: InputType.Display },
+            { label: 'Age', value: data?.age, inputtype: InputType.Display },
+            { label: 'Sex', value: this.enumChangePipe.transform(data?.sex, Enums.Sex), inputtype: InputType.Display },
+            { label: 'Birthday', value: this.datePipe.transform(data?.birthday, 'yyyy/MM/dd'), inputtype: InputType.Display },
+            { label: 'Note', value: data?.note, inputtype: InputType.Display },
         ];
         dialog.buttons = [
             { class: 'btn-right', name: 'OK',     click: async () => { dialog.activeModal.close('cancel'); } },

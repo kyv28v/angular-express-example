@@ -52,12 +52,12 @@ export class UserMngComponent implements OnInit {
     dialog.title = 'Register user';
     dialog.message = '';
     dialog.items = [
-      { label: 'Name', value: data ? data.name : null, inputtype: InputType.Text, required: true, placeholder: 'John Smith' },
-      { label: 'Age', value: data ? data.age : null, inputtype: InputType.Text, required: true, placeholder: '20' },
-      { label: 'Sex', value: data ? data.sex : null, inputtype: InputType.Radio, required: false, placeholder: '', selectList : Enums.Sex },
-      { label: 'Birthday', value: data ? data.birthday : null, inputtype: InputType.Date, required: false, placeholder: '1990/01/01' },
+      { label: 'Name', value: data?.name, inputtype: InputType.Text, required: true, placeholder: 'John Smith' },
+      { label: 'Age', value: data?.age, inputtype: InputType.Text, required: true, placeholder: '20' },
+      { label: 'Sex', value: data?.sex, inputtype: InputType.Radio, required: false, placeholder: '', selectList : Enums.Sex },
+      { label: 'Birthday', value: data?.birthday, inputtype: InputType.Date, required: false, placeholder: '1990/01/01' },
       { label: 'Password', value: data ? '●●●●●●' : null, inputtype: data ? InputType.Display : InputType.Password, required: false, placeholder: '' },
-      { label: 'Note', value: data ? data.note : null, inputtype: InputType.TextArea, required: false, placeholder: '' },
+      { label: 'Note', value: data?.note, inputtype: InputType.TextArea, required: false, placeholder: '' },
     ];
     dialog.buttons = [
       { class: 'btn-left',  name: 'Cancel', click: async () => { dialog.activeModal.close('cancel'); } },
