@@ -15,7 +15,7 @@ router.get('/', async function(req: Request, res: Response, next: NextFunction) 
         console.log(sql);
 
         // SQL実行
-        const values = JSON.parse(req.query.values);
+        const values = JSON.parse(req.query.values + '');
         const data = await query(sql, values, false);
 
         console.log('db.get() end');
