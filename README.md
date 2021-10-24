@@ -6,8 +6,8 @@ DBはPostgreSQLを使用しています。
 
 ## 動作確認環境
 
-・node.js       12.16.1  
-・npm           6.13.4  
+・node.js       16.12.0  
+・npm           8.1.0  
 ・PostgreSql    12.1
 
 ## インストール方法

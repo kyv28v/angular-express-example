@@ -30,6 +30,7 @@
     "@ngx-translate/core": "11.0.1",
     "@ngx-translate/http-loader": "4.0.0",
     "@types/crypto-js": "^3.1.43",
+    "angular-express-template": "file:..",
     "angularx-flatpickr": "^6.2.0",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
@@ -54,7 +55,7 @@
     "karma-jasmine": "3.1.0",
     "karma-jasmine-html-reporter": "1.5.1",
     "protractor": "5.4.2",
-    "ts-node": "8.6.2",
+    "ts-node": "^10.4.0",
     "tslint": "5.0.0",
     "typescript": "3.7.5"
   }

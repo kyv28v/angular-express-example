@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
+            // Attach to node that is already running.
             "type": "node",
             "request": "attach",
             "name": "Attach Node",
@@ -13,6 +14,14 @@
                 "<node_internals>/**"
             ],
             "processId": "${command:PickProcess}",
-        }
+        },
+        {
+            // Launch Chrome
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/front",
+        },
     ]
 }
